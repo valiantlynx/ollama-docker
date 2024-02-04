@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@3.7.3/dist/full.css" rel="stylesheet" type="text/css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/htmx.org"></script>
+  <script src="https://unpkg.com/htmx.org/dist/ext/client-side-templates.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/nunjucks@3.2.4/browser/nunjucks.min.js"></script>
+  <script>
+    // CORS workaround
+    document.addEventListener("htmx:configRequest", (evt) => {
+      evt.detail.headers = [];
+    });
+  </script>
+  <title>Whisper Magic Chat</title>
+</head>
+
+<body class="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 font-sans">
+
+  <header class="bg-opacity-90 backdrop-filter backdrop-blur-lg py-6">
+    <div class="container mx-auto flex justify-between items-center">
+      <h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white">Whisper Magic Chat</h1>
+      <nav>
+        <ul class="flex space-x-4">
+          <li><a href="/" class="hover:text-gray-300 text-white">Home</a></li>
+          <li><a href="#features" class="hover:text-gray-300 text-white">Features</a></li>
+          <li><a href="/docs" class="hover:text-gray-300 text-white">Docs</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section id="hero" class="bg-gray-900 text-white py-16">
+    <div class="container mx-auto text-center">
+      <h2 class="text-4xl lg:text-5xl font-semibold mb-4">Unleash the Magic of Your Voice</h2>
+      <p class="text-lg lg:text-xl text-gray-300 leading-7 mb-8">Transform your voice into something enchanting with
+        Whisper Magic API. Experience the future of automatic speech recognition with unparalleled accuracy and speed.</p>
+      <a href="#transcribe"
+        class="bg-blue-500 text-white px-8 py-3 rounded-full hover:bg-blue-700 transition duration-300">Get
+        Started</a>
+    </div>
+  </section>
+
+  <section id="transcribe" class="bg-gray-100 py-16" hx-ext="client-side-templates">
+    <div class="container mx-auto text-center">
+      <h2 class="text-3xl lg:text-4xl font-semibold mb-6 text-gray-800">Whisper Magic Transcription</h2>
+      <p class="text-lg lg:text-xl text-gray-700 mb-6">Upload an audio file to transcribe and experience the magic of
+        Whisper.</p>
+
+      <form hx-post="/transcribe" hx-trigger="submit" hx-swap="outerHTML" enctype="multipart/form-data"
+        class="flex flex-col items-center space-y-4" nunjucks-template="chat" _='on htmx:xhr:progress(loaded, total) set #progress.value to (loaded/total)*100'>
+        <input type="file" name="files" class="p-4 border border-gray-300 rounded">
+        <button type="submit"
+          class="bg-blue-500 text-white px-8 py-3 rounded-full hover:bg-blue-700 transition duration-300">Transcribe</button>
+        <progress id='progress' value='0' max='100' class="w-full h-4 bg-blue-200 rounded-full"></progress>
+        <!-- HTMX and Nunjucks templates -->
+        <template id="chat">
+          <!-- totalItems -->
+          {% if results == 1 %}
+          <i class="text-gray-500 mb-4"> Found {{ results.length }} files.</i>
+          {% endif %}
+          <!-- items -->
+          {% for chat in results %}
+          <div class="block mb-8 mx-auto max-w-md bg-white rounded-lg p-4 shadow-md hover:shadow-lg">
+            <div class="flex items-center">
+              <div class="w-10 h-10 rounded-full overflow-hidden mr-4">
+                <img alt="Whisper Magic transcription icon"
+                  src="https://api.dicebear.com/7.x/adventurer/svg?seed={{ chat.filename }}"
+                  class="object-cover w-full h-full">
+              </div>
+              <div>
+                <span class="text-blue-500 font-bold">Whisper:</span>
+                <time class="text-xs opacity-50 block">{{ chat.filename | truncate(10, true, "")}}</time>
+              </div>
+            </div>
+            <div class="mt-4">{{ chat.transcript }}</div>
+            <div class="mt-4 text-blue-500 hover:underline">
+              <a href="javascript:location.reload(true);" rel="noopener noreferrer">Retry?</a>
+            </div>            
+          </div>
+          {% endfor %}
+        </template>
+      </form>
+    </div>
+  </section>
+
+  <section id="features" class="bg-gray-800 text-white py-16">
+    <div class="container mx-auto text-center">
+      <h2 class="text-3xl lg:text-4xl font-semibold mb-12">Enchanting Features</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Feature 1 -->
+        <div class="p-8 bg-white bg-opacity-70 rounded-lg shadow-md">
+          <h3 class="text-2xl font-semibold mb-4 text-gray-800">Voice Transformation</h3>
+          <p class="text-gray-700">Turn your voice into a symphony of magical sounds. Choose from a variety of
+            enchanting transformations.</p>
+        </div>
+        <!-- Feature 2 -->
+        <div class="p-8 bg-white bg-opacity-70 rounded-lg shadow-md">
+          <h3 class="text-2xl font-semibold mb-4 text-gray-800">Whisper Recognition</h3>
+          <p class="text-gray-700">Whisper Magic recognizes whispers with unparalleled precision, making it perfect for
+            ASMR applications.</p>
+        </div>
+        <!-- Feature 3 -->
+        <div class="p-8 bg-white bg-opacity-70 rounded-lg shadow-md">
+          <h3 class="text-2xl font-semibold mb-4 text-gray-800">Real-time Spell Casting</h3>
+          <p class="text-gray-700">Cast spells using your voice in real-time. Experience the magic as your words come to
+            life.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-gray-900 text-white py-6">
+    <div class="container mx-auto text-center">
+      <p>&copy; 2024 Whisper Magic. All Rights Reserved.</p>
+    </div>
+  </footer>
+</body>
+
+</html>
