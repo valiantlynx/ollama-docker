@@ -25,8 +25,6 @@ Make sure you have the following prerequisites installed on your machine:
 
     ```bash
     cd ollama-docker
-    mkdir ollama/ollama
-    mkdir ollama/ollama-webui
     ```
 
 ### Usage

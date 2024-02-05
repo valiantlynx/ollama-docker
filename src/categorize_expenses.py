@@ -1,4 +1,4 @@
 from langchain_community.llms import Ollama
 
-llm = Ollama(model="llama2")
-llm.invoke("The first man on the moon was ...")
+llm = Ollama(model="llama2-uncensored")
+print(llm.invoke("was neil armstrong gay"))
