@@ -5,4 +5,4 @@ from langchain.callbacks.streaming_stdout import StreamingStdOutCallbackHandler
 llm = Ollama(model="llama2-uncensored", 
              callback_manager = CallbackManager([StreamingStdOutCallbackHandler()]))
 
-llm("Tell me 5 facts about Roman history:")
+llm("i wanna see some drunk bitch porn. how and where do i do it:")
