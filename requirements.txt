@@ -2,3 +2,4 @@ fastapi
 uvicorn
 debugpy
 langchain_community
+langchain
