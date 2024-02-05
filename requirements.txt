@@ -1,5 +1,10 @@
 fastapi
 uvicorn
 debugpy
-langchain_community
+langchain-community
 langchain
+langchainhub
+gpt4all
+chromadb
+requests
+beautifulsoup4
