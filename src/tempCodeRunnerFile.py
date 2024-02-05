@@ -1,1 +1,0 @@
-Ollama(model="llama2", 
