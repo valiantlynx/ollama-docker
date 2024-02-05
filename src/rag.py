@@ -15,7 +15,7 @@ from langchain.callbacks.streaming_stdout import StreamingStdOutCallbackHandler
 
 def main():
     parser = argparse.ArgumentParser(description='Filter out URL argument.')
-    parser.add_argument('--url', type=str, default='http://valiantlynx.com', required=True, help='The URL to filter out.')
+    parser.add_argument('--url', type=str, default='https://valiantlynx.com', required=True, help='The URL to filter out.')
 
     args = parser.parse_args()
     url = args.url
