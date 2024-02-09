@@ -60,7 +60,7 @@ def main():
     )
 
     # Ask a question
-    question = f"What are the latest headlines on {url}?"
+    question = f"summarize what this blog is trying to say? {url}?"
     result = qa_chain({"query": question})
 
     # print(result)
