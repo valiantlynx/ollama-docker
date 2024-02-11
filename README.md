@@ -49,6 +49,12 @@ docker run --gpus all nvidia/cuda:11.5.2-base-ubuntu20.04 nvidia-smi
 
 Start Ollama and its dependencies using Docker Compose:
 
+if gpu is configured
+```bash
+docker-compose -f docker-compose-ollama-gpu.yaml up -d
+```
+
+else
 ```bash
 docker-compose up -d
 ```
