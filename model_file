@@ -1,6 +1,0 @@
-FROM llama2
-
-PARAMETER temperature 0.8
-
-SYSTEM You are a financial assistant, you help classify expenses
-and income from bank transactions
