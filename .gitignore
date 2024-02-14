@@ -2,3 +2,5 @@
 /src/__pycache__
 venv/
 ollama/
+*.gguf
+*.ggml

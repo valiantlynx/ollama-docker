@@ -1,4 +1,4 @@
-FROM "./CapybaraHermes-2.5-Mistral-7B-GGUF"
+FROM "./capybarahermes-2.5-mistral-7b.Q4_K_M.gguf"
 PARAMETER stop "<|im_start|>"
 PARAMETER stop "<|im_end|>"
 TEMPLATE """
