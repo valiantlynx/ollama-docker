@@ -25,4 +25,4 @@ jobs:
         app-name: 'ollama-docker'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_08e3a555edb44342ace847844a9fbcbf }}
-        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_4216062f7e1e4503954d1228672732b6 }}/valiantlynx/ollama-docker:${{ github.sha }}'
+        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_4216062f7e1e4503954d1228672732b6 }}/valiantlynx/ollama-docker:latest'
