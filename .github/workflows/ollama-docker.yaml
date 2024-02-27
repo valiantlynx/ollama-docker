@@ -75,6 +75,7 @@ jobs:
           latest=false
         tags: |
           type=sha,prefix=commit-,format=long
+          type=raw,value=latest
        
 
     - name: Build and tag Docker image and push to Docker Hub
