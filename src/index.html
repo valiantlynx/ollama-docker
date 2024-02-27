@@ -12,7 +12,7 @@
   <title>Ollama Docker Compose Setup</title>
 </head>
 
-<body class="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 font-sans">
+<body class="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 font-sans h-screen">
 
   <header class="bg-opacity-90 backdrop-filter backdrop-blur-lg py-6">
     <div class="container mx-auto flex justify-between items-center">
@@ -33,7 +33,7 @@
       <p class="text-lg lg:text-xl text-gray-300 leading-7 mb-8">Streamline your Ollama deployments using Docker Compose. Dive into a containerized environment designed for simplicity and efficiency.</p>
       <div class="space-x-4">
         <a href="http://localhost:3000" class="bg-blue-500 text-white px-8 py-3 rounded-full hover:bg-blue-700 transition duration-300">Ollama Web UI</a>
-        <a href="http://localhost:11434" class="bg-green-500 text-white px-8 py-3 rounded-full hover:bg-green-700 transition duration-300">Langchain</a>
+        <a href="http://localhost:11434" class="bg-green-500 text-white px-8 py-3 rounded-full hover:bg-green-700 transition duration-300">Ollama</a>
         <a href="http://localhost:8000" class="bg-red-500 text-white px-8 py-3 rounded-full hover:bg-red-700 transition duration-300">App Container</a>
       </div>
     </div>
@@ -53,17 +53,19 @@
         </div>
         <div class="p-8 bg-white rounded-lg shadow-md">
           <h3 class="text-2xl font-semibold mb-4">Flexible Development</h3>
-          <p>Includes a development container for testing and experimentation, supporting both Docker and virtual environments.</p>
+          <p class="py-8 ">Includes a development container for testing and experimentation, supporting both Docker and virtual environments.</p>
+          <a href="http://localhost:8000" class="bg-red-500 text-white px-8 py-3 my-3 rounded-full hover:bg-red-700 transition duration-300">App Container</a>
+          <p class="py-8">made with fast api. it has some test python code using langchain to programatically use the ollama api.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <footer class="bg-gray-900 text-white py-6">
-    <div class="container mx-auto text-center">
-      <p>&copy; 2024 Ollama Docker. All Rights Reserved.</p>
-    </div>
-  </footer>
-</body>
 
+</body>
+<footer class="bg-gray-900 text-white py-6 bottom-0">
+  <div class="container mx-auto text-center">
+    <p>&copy; 2024 Ollama Docker. All Rights Reserved.</p>
+  </div>
+</footer>
 </html>

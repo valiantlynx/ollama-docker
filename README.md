@@ -59,7 +59,7 @@ else
 docker-compose up -d
 ```
 
-Visit [http://localhost:3000](http://localhost:3000) in your browser to access Ollama-webui.
+Visit [http://localhost:8000](http://localhost:8000) in your browser to access Ollama-webui.
 
 ### Model Installation
 
@@ -72,7 +72,7 @@ You can explore Langchain and Ollama within the project. A third container named
 ### Devcontainer and Virtual Environment
 
 The **app** container serves as a devcontainer, allowing you to boot into it for experimentation. Additionally, the run.sh file contains code to set up a virtual environment if you prefer not to use Docker for your development environment.
-
+if you have vs code and the `Remote Development´ extension simply opening this project from the root will make vscode ask you to reopen in container
 ## Stop and Cleanup
 
 To stop the containers and remove the network:
