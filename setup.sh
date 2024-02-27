@@ -1,5 +1,6 @@
 # run using docker
 docker build -t valiantlynx/ollama-docker .
+#start ollama nd ollama webui then:
 docker run --name ollama-docker-container -d -p 8000:8000 -v $(pwd):/code valiantlynx/ollama-docker:latest
 
 #connect to turborepo
