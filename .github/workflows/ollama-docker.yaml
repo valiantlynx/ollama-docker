@@ -19,7 +19,7 @@ on:
 
 jobs:
   build-and-push-images:
-    name: Build altlokat
+    name: Build ollama-docker
     runs-on: ubuntu-latest
     permissions:
       packages: write
