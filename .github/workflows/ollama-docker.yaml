@@ -74,7 +74,8 @@ jobs:
         flavor: |
           latest=false
         tags: |
-          type=raw,value=latest       
+          type=sha,prefix=commit-,format=long
+       
 
     - name: Build and tag Docker image and push to Docker Hub
       uses: docker/build-push-action@v2
