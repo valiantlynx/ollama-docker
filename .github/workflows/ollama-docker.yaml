@@ -1,0 +1,92 @@
+name: ollama-docker
+
+run-name: ${{ github.actor }} is building ollama-docker 🚀
+
+on:
+  push:
+    branches:
+      - 'main'
+    paths:
+      - '*'
+  pull_request:
+    branches:
+      - 'main'
+    paths:
+      - '*'
+  schedule:
+    - cron: '0 0 * * 0'
+  workflow_dispatch:
+
+jobs:
+  build-and-push-images:
+    name: Build altlokat
+    runs-on: ubuntu-latest
+    permissions:
+      packages: write
+      contents: read
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v3
+
+    - name: Set up Docker Buildx
+      id: buildx
+      uses: docker/setup-buildx-action@v3
+
+    - name: Cache Docker layers
+      uses: actions/cache@v2
+      with:
+        path: /tmp/.buildx-cache
+        key: ${{ runner.os }}-buildx-${{ github.sha }}
+        restore-keys: |
+          ${{ runner.os }}-buildx-
+
+    - name: Login to Docker Hub
+      if: github.event_name != 'pull_request'
+      uses: docker/login-action@v3
+      with:
+        username: ${{ secrets.DOCKER_HUB_USERNAME }}
+        password: ${{ secrets.DOCKER_HUB_PASSWORD }}
+
+    - name: Login to GitHub Container registry
+      if: github.event_name != 'pull_request'
+      uses: docker/login-action@v1
+      env:
+        GITHUB_USER: ${{ github.actor }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        registry: ghcr.io
+        username: $GITHUB_USER
+        password: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Docker meta
+      id: docker_meta
+      uses: docker/metadata-action@v3
+      with:
+        images: |
+          ${{ secrets.DOCKER_HUB_USERNAME }}/ollama-docker
+          ghcr.io/${{ secrets.DOCKER_HUB_USERNAME }}/ollama-docker
+        flavor: |
+          latest=false
+        tags: |
+          type=raw,value=latest       
+
+    - name: Build and tag Docker image and push to Docker Hub
+      uses: docker/build-push-action@v2
+      id: docker_build
+      with:
+        push: ${{ github.event_name != 'pull_request' }}
+        tags: ${{ steps.docker_meta.outputs.tags }}
+        labels: ${{ steps.docker_meta.outputs.labels }}
+        builder: ${{ steps.buildx.outputs.name }}
+        cache-from: type=local,src=/tmp/.buildx-cache
+        cache-to: type=local,dest=/tmp/.buildx-cache
+        context: .
+        file: ./Dockerfile.solo
+
+    - name: Show image digest
+      run: |
+        echo ${{ steps.docker_build.outputs.digest }}
