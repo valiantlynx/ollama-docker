@@ -11,7 +11,7 @@ services:
     restart: always
     depends_on:
       - ollama
-      - llama-webui
+      - ollama-webui
     networks:
       - ollama-docker
 
@@ -29,7 +29,7 @@ services:
     networks:
       - ollama-docker
 
-  llama-webui:
+  ollama-webui:
     image: ghcr.io/ollama-webui/ollama-webui:main
     container_name: ollama-webui
     volumes:
@@ -37,7 +37,7 @@ services:
     depends_on:
       - ollama
     ports:
-      - 3000:8080
+      - 8080:8080
     environment:
       - '/ollama/api=http://ollama:11434/api'
     extra_hosts:
