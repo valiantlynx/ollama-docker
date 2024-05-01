@@ -30,7 +30,7 @@ services:
       - ollama-docker
 
   ollama-webui:
-    image: ghcr.io/ollama-webui/ollama-webui:main
+    image: ghcr.io/open-webui/open-webui:main
     container_name: ollama-webui
     volumes:
       - ./ollama/ollama-webui:/app/backend/data
