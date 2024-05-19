@@ -25,7 +25,10 @@ services:
     restart: unless-stopped
     image: ollama/ollama:latest
     ports:
-      - 11434:11434
+      - 7869:11434
+    environment:
+      - OLLAMA_KEEP_ALIVE="24h"
+      - OLLAMA_HOST=0.0.0.0
     networks:
       - ollama-docker
     deploy:
@@ -45,8 +48,13 @@ services:
       - ollama
     ports:
       - 8080:8080
-    environment:
-      - '/ollama/api=http://ollama:11434/api'
+    environment: # https://docs.openwebui.com/getting-started/env-configuration#default_models
+      - OLLAMA_BASE_URLS=http://host.docker.internal:7869 #comma separated ollama hosts
+      - ENV=dev
+      - WEBUI_AUTH=False
+      - WEBUI_NAME=valiantlynx AI
+      - WEBUI_URL=http://localhost:8080
+      - WEBUI_SECRET_KEY=t0p-s3cr3t
     extra_hosts:
       - host.docker.internal:host-gateway
     restart: unless-stopped
