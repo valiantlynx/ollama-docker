@@ -26,6 +26,9 @@ services:
     pull_policy: always
     tty: true
     restart: always
+    environment:
+      - OLLAMA_KEEP_ALIVE="24h"
+      - OLLAMA_HOST=0.0.0.0
     networks:
       - ollama-docker
 
