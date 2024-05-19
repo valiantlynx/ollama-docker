@@ -27,7 +27,7 @@ services:
     ports:
       - 7869:11434
     environment:
-      - OLLAMA_KEEP_ALIVE="24h"
+      - OLLAMA_KEEP_ALIVE=24h
       - OLLAMA_HOST=0.0.0.0
     networks:
       - ollama-docker
