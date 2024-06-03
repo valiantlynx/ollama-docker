@@ -64,7 +64,7 @@ Visit [http://localhost:8000](http://localhost:8000) in your browser to access O
 
 ### Model Installation
 
-Navigate to settings -> model and install a model (e.g., llama2). This may take a couple of minutes, but afterward, you can use it just like ChatGPT.
+Navigate to settings -> model and install a model (e.g., llava-phi3). This may take a couple of minutes, but afterward, you can use it just like ChatGPT.
 
 ### Explore Langchain and Ollama
 
