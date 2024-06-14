@@ -6,7 +6,6 @@ Welcome to the Ollama Docker Compose Setup! This project simplifies the deployme
 ## Getting Started
 
 ### Prerequisites
-
 Make sure you have the following prerequisites installed on your machine:
 
 - Docker
