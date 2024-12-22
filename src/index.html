@@ -1,24 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://cdn.jsdelivr.net/npm/daisyui@3.7.3/dist/full.css" rel="stylesheet" type="text/css">
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.22/dist/full.min.css" rel="stylesheet" type="text/css" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/htmx.org"></script>
   <script src="https://unpkg.com/htmx.org/dist/ext/client-side-templates.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/nunjucks@3.2.4/browser/nunjucks.min.js"></script>
   <title>Auto Ollama Docker Compose Setup</title>
 </head>
-
-<body class="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 font-sans h-screen">
-
+<body class="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 font-sans min-h-screen">
   <header class="bg-opacity-90 backdrop-filter backdrop-blur-lg py-6">
-    <div class="container mx-auto flex justify-between items-center">
-      <h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white">Auto Ollama Docker Compose Setup</h1>
-      <nav>
-        <ul class="flex space-x-4">
+    <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
+      <h1 class="ml-7 text-3xl md:text-4xl lg:text-5xl font-extrabold text-white text-center md:text-left">Auto Ollama Docker Compose Setup</h1>
+      <nav class="mr-7 mt-4 md:mt-0">
+        <ul class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-4">
           <li><a href="/" class="hover:text-gray-300 text-white">Home</a></li>
           <li><a href="#features" class="hover:text-gray-300 text-white">Features</a></li>
           <li><a href="/docs" class="hover:text-gray-300 text-white">Docs</a></li>
@@ -27,41 +24,48 @@
     </div>
   </header>
 
-  <section id="hero" class="bg-gray-900 text-white py-16">
+  <section id="hero" class="bg-gray-900 text-white py-16 px-4">
     <div class="container mx-auto text-center">
-      <h2 class="text-4xl lg:text-5xl font-semibold mb-4">Simplify Your Development with Ollama Docker</h2>
-      <p class="text-lg lg:text-xl text-gray-300 leading-7 mb-8">Streamline your Ollama deployments using Docker Compose. Dive into a containerized environment designed for simplicity and efficiency.</p>
-      <div class="space-x-4">
-        <a href="http://localhost:8080" class="bg-blue-500 text-white px-8 py-3 rounded-full hover:bg-blue-700 transition duration-300">Ollama Web UI</a>
-        <a href="http://localhost:11434" class="bg-green-500 text-white px-8 py-3 rounded-full hover:bg-green-700 transition duration-300">Ollama</a>
-        <a href="http://localhost:8000" class="bg-red-500 text-white px-8 py-3 rounded-full hover:bg-red-700 transition duration-300">App Container</a>
+      <h2 class="text-4xl lg:text-5xl font-semibold mb-4">Auto Ollama Docker Compose Setup</h2>
+      <p class="text-lg lg:text-xl leading-7 mb-8">Streamline your Ollama deployments using Docker Compose. Dive into a containerized environment designed for simplicity and efficiency.</p>
+      <div class="grid grid-cols-3 gap-4 justify-center">
+        <div class="flex flex-col items-center">
+          <a href="http://localhost:8080" class="bg-blue-500 text-white w-16 h-16 flex items-center justify-center rounded-full text-2xl font-bold hover:bg-blue-700 transition duration-300">OUI</a>
+          <span class="mt-2 text-sm">Web UI</span>
+        </div>
+        <div class="flex flex-col items-center">
+          <a href="http://localhost:11434" class="bg-green-500 text-white w-16 h-16 flex items-center justify-center rounded-full text-2xl font-bold hover:bg-green-700 transition duration-300">O</a>
+          <span class="mt-2 text-sm">Ollama</span>
+        </div>
+        <div class="flex flex-col items-center">
+          <a href="http://localhost:8000" class="bg-red-500 text-white w-16 h-16 flex items-center justify-center rounded-full text-2xl font-bold hover:bg-red-700 transition duration-300">AC</a>
+          <span class="mt-2 text-sm">App Container</span>
+        </div>
       </div>
     </div>
   </section>
 
-  <section id="features" class="bg-gray-100 py-16">
+  <section id="features" class="bg-gray-100 py-16 px-4">
     <div class="container mx-auto text-center">
       <h2 class="text-3xl lg:text-4xl font-semibold mb-6 text-gray-800">Key Features</h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         <div class="p-8 bg-white rounded-lg shadow-md">
           <h3 class="text-2xl font-semibold mb-4">Easy Setup</h3>
-          <p>Get up and running with Ollama and its dependencies through Docker Compose with minimal setup.</p>
+          <p class="text-black">Get up and running with Ollama and its dependencies through Docker Compose with minimal setup.</p>
         </div>
         <div class="p-8 bg-white rounded-lg shadow-md">
           <h3 class="text-2xl font-semibold mb-4">GPU Support</h3>
-          <p>Leverage GPU acceleration for improved performance in processing tasks, with easy configuration.</p>
+          <p class="text-black">Leverage GPU acceleration for improved performance in processing tasks, with easy configuration.</p>
         </div>
         <div class="p-8 bg-white rounded-lg shadow-md">
           <h3 class="text-2xl font-semibold mb-4">Flexible Development</h3>
-          <p class="py-8 ">Includes a development container for testing and experimentation, supporting both Docker and virtual environments.</p>
+          <p class="text-black">Includes a development container for testing and experimentation, supporting both Docker and virtual environments.</p>
+          <p class="py-8 text-black">Auto Ollama includes test Python scripts which utilize langchain to programmatically use the Ollama API.</p>
           <a href="http://localhost:8000" class="bg-red-500 text-white px-8 py-3 my-3 rounded-full hover:bg-red-700 transition duration-300">App Container</a>
-          <p class="py-8">made with fast api. it has some test python code using langchain to programatically use the ollama api.</p>
         </div>
       </div>
     </div>
   </section>
-
-
 </body>
 <footer class="bg-gray-900 text-white py-6 bottom-0">
   <div class="container mx-auto text-center">
