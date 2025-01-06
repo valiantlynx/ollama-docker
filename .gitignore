@@ -4,3 +4,4 @@ venv/
 ollama/
 *.gguf
 *.ggml
+.idea/
