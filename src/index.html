@@ -8,17 +8,18 @@
   <script src="https://unpkg.com/htmx.org"></script>
   <script src="https://unpkg.com/htmx.org/dist/ext/client-side-templates.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/nunjucks@3.2.4/browser/nunjucks.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <title>Auto Ollama Docker Compose Setup</title>
 </head>
 <body class="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 font-sans min-h-screen">
   <header class="bg-opacity-90 backdrop-filter backdrop-blur-lg py-6">
     <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
-      <h1 class="ml-7 text-3xl md:text-4xl lg:text-5xl font-extrabold text-white text-center md:text-left">Auto Ollama Docker Compose Setup</h1>
+      <h1 class="ml-7 text-2xl md:text-3xl lg:text-4xl font-extrabold text-white text-center md:text-left">Auto Ollama Docker Compose Setup</h1>
       <nav class="mr-7 mt-4 md:mt-0">
         <ul class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-4">
-          <li><a href="/" class="hover:text-gray-300 text-white">Home</a></li>
-          <li><a href="#features" class="hover:text-gray-300 text-white">Features</a></li>
-          <li><a href="/docs" class="hover:text-gray-300 text-white">Docs</a></li>
+          <li><a href="/" class="hover:bg-slate-600 hover:rounded-lg hover:px-2 hover:py-1 text-white"><i class="fa-solid fa-house mr-1"></i> Home</a></li>
+          <li><a href="#features" class="hover:bg-slate-600 hover:rounded-lg hover:px-2 hover:py-1 text-white"><i class="fa-solid fa-star mr-1"></i> Features</a></li>
+          <li><a href="/docs" class="hover:bg-slate-600 hover:rounded-lg hover:px-2 hover:py-1 text-white"><i class="fa-solid fa-book mr-1"></i> Docs</a></li>
         </ul>
       </nav>
     </div>
@@ -28,10 +29,11 @@
     <div class="container mx-auto text-center">
       <h2 class="text-4xl lg:text-5xl font-semibold mb-4">Auto Ollama Docker Compose Setup</h2>
       <p class="text-lg lg:text-xl leading-7 mb-8">Streamline your Ollama deployments using Docker Compose. Dive into a containerized environment designed for simplicity and efficiency.</p>
+      <h3 class="text-2xl lg:text-3xl font-semibold mb-10">Tools</h3>
       <div class="grid grid-cols-3 gap-4 justify-center">
         <div class="flex flex-col items-center">
           <a href="http://localhost:8080" class="bg-blue-500 text-white w-16 h-16 flex items-center justify-center rounded-full text-2xl font-bold hover:bg-blue-700 transition duration-300">OUI</a>
-          <span class="mt-2 text-sm">Web UI</span>
+          <span class="mt-2 text-sm">Open WebUI</span>
         </div>
         <div class="flex flex-col items-center">
           <a href="http://localhost:11434" class="bg-green-500 text-white w-16 h-16 flex items-center justify-center rounded-full text-2xl font-bold hover:bg-green-700 transition duration-300">O</a>
@@ -45,20 +47,20 @@
     </div>
   </section>
 
-  <section id="features" class="bg-gray-100 py-16 px-4">
+  <section id="features" class="bg-gray-300 py-16 px-4">
     <div class="container mx-auto text-center">
-      <h2 class="text-3xl lg:text-4xl font-semibold mb-6 text-gray-800">Key Features</h2>
+      <h2 class="text-3xl lg:text-4xl font-semibold mb-12 text-black">Key Features</h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         <div class="p-8 bg-white rounded-lg shadow-md">
-          <h3 class="text-2xl font-semibold mb-4">Easy Setup</h3>
+          <h3 class="text-2xl font-semibold mb-4 text-black">Easy Setup</h3>
           <p class="text-black">Get up and running with Ollama and its dependencies through Docker Compose with minimal setup.</p>
         </div>
         <div class="p-8 bg-white rounded-lg shadow-md">
-          <h3 class="text-2xl font-semibold mb-4">GPU Support</h3>
+          <h3 class="text-2xl font-semibold mb-4 text-black">GPU Support</h3>
           <p class="text-black">Leverage GPU acceleration for improved performance in processing tasks, with easy configuration.</p>
         </div>
         <div class="p-8 bg-white rounded-lg shadow-md">
-          <h3 class="text-2xl font-semibold mb-4">Flexible Development</h3>
+          <h3 class="text-2xl font-semibold mb-4 text-black">Flexible Development</h3>
           <p class="text-black">Includes a development container for testing and experimentation, supporting both Docker and virtual environments.</p>
           <p class="py-8 text-black">Auto Ollama includes test Python scripts which utilize langchain to programmatically use the Ollama API.</p>
           <a href="http://localhost:8000" class="bg-red-500 text-white px-8 py-3 my-3 rounded-full hover:bg-red-700 transition duration-300">App Container</a>
