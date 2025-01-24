@@ -59,7 +59,7 @@ else
 docker-compose up -d
 ```
 
-Visit [http://localhost:8000](http://localhost:8000) in your browser to access Ollama-webui.
+Visit [http://localhost:8080](http://localhost:8080) in your browser to access Ollama-webui.
 
 ### Model Installation
 
