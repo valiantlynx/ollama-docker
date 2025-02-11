@@ -9,7 +9,7 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 
 2. Attribution:
    Any distribution or use of the Software must prominently display the following notice either within the Software's user interface or in accompanying documentation:
-   "This software includes code developed by valiantlynx (https://valiantlynx.com)."
+   "This software includes code developed by valiantlynx (https://www.valiantlynx.com)."
 
 3. Redistribution:
    Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
