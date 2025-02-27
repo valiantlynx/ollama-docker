@@ -8,8 +8,7 @@ Welcome to the Ollama Docker Compose Setup! This project simplifies the deployme
 ### Prerequisites
 Make sure you have the following prerequisites installed on your machine:
 
-- Docker
-- Docker Compose
+- Docker (should also be able to run docker compose ...)
 
 #### GPU Support (Optional)
 
@@ -51,12 +50,12 @@ Start Ollama and its dependencies using Docker Compose:
 
 if gpu is configured
 ```bash
-docker-compose -f docker-compose-ollama-gpu.yaml up -d
+docker compose -f docker-compose-ollama-gpu.yaml up -d
 ```
 
 else
 ```bash
-docker-compose up -d
+docker compose up -d
 ```
 
 Visit [http://localhost:8080](http://localhost:8080) in your browser to access Ollama-webui.
@@ -78,7 +77,7 @@ if you have vs code and the `Remote Development´ extension simply opening this 
 To stop the containers and remove the network:
 
 ```bash
-docker-compose down
+docker compose down
 ```
 
 ## Contributing
